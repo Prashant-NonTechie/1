@@ -1,0 +1,38 @@
+// Get references to the input elements and the output element
+const num1 = document.getElementById('num1');
+const num2 = document.getElementById('num2');
+const operator = document.getElementById('operator');
+const output = document.getElementById('output');
+
+// Create a function to perform the calculation
+function calculate() {
+  // Get the values of the input elements
+  const n1 = Number(num1.value);
+  const n2 = Number(num2.value);
+  const op = operator.value;
+
+  // Perform the calculation based on the operator
+  let result;
+  if (op === '+') {
+    result = n1 + n2;
+  } else if (op === '-') {
+    result = n1 - n2;
+  } else if (op === '*') {
+    result = n1 * n2;
+  } else if (op === '/') {
+    result = n1 / n2;
+  } else if (op === '^') {
+    result = Math.pow(n1, n2);
+  } else if (op === '√') {
+    result = Math.pow(n1, 1/n2);
+  } else if (op === '%') {
+    result = n1 * (n2 / 100);
+  }
+
+  // Set the output element's value to the result
+  output.value = result;
+}
+
+// Add an event listener to the "Calculate" button
+const button = document.getElementById('calculate');
+button.addEventListener('click', calculate);
